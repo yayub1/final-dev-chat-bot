@@ -1,0 +1,247 @@
+/* Global Styles */
+html, body {
+    height: 100%; /* Ensure both html and body take full height */
+    margin: 0; /* Remove default margin */
+    font-family: Arial, sans-serif; /* Set font family */
+    color: whitesmoke; /* Set default text color */
+    background-color: #101010; /* Set background color */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+#chat-btn {
+    position: relative;
+    top: -300px;
+    left: 900px;
+    z-index: 999;
+  
+    /* Responsive design */
+}
+  
+  
+/* Chat Container */
+.chat-container {
+    width: 1000px; /* Full width */
+    max-width: 700px; /* Limit max width */
+    background-color: #202020; /* Background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Soft shadow */
+    overflow: hidden; /* Hide overflow */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Stack children vertically */
+    height: 90vh; /* Set height */
+    transition: height 0.3s ease; /* Transition for height changes */
+}
+
+/* Chat Header */
+.chat-header {
+    background-color: #303030; /* Header background color */
+    color: #fff; /* Header text color */
+    padding: 15px; /* Padding */
+    text-align: center; /* Center text */
+}
+
+.chat-header h1 {
+    margin: 0; /* Remove default margin */
+    font-size: 1.5rem; /* Font size */
+}
+.chat-message {
+    flex-grow: 1; /* Allow to grow */
+    padding: 20px; /* Padding */
+    overflow-y: auto; /* Enable vertical scrolling */
+    transition: background-color 0.3s ease; /* Transition for background color */
+    animation: chatMessageFadeIn 0.5s ease; /* Apply fade-in animation to the chat message container */
+    overflow-x: hidden;
+   
+}
+.user-message {
+    margin-left: 70px; /* Move user messages 10px to the left */
+
+
+    border-radius: 5px; /* Optional: Rounded corners */
+    padding: 5px; /* Optional: Padding for spacing */
+    word-break: break-all;
+}
+/* Animation for message appearance */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px); /* Slide in from below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End position */
+    }
+}
+
+.message {
+    display: flex; /* Flexbox for message layout */
+    align-items: flex-start; /* Align items at start */
+    max-width: 70%; /* Limit width */
+    animation: fadeIn 0.5s ease; /* Apply fade-in animation */
+}
+
+/* Message Content */
+.message-content {
+    padding: 20px; /* Padding */
+    border-radius: 5px; /* Rounded corners */
+    max-width: 70%; /* Limit width */
+    transition: background-color 0.3s ease; /* Transition for background color */
+}
+
+/* User Message Styles */
+.user-message {
+    flex-direction: row-reverse; /* Reverse direction for user messages */
+    color: red; /* Text color */
+}
+
+.user-message .message-content {
+    background-color: black; /* User message background color */
+    margin-right: 10px; /* Right margin */
+    position: relative; /* Positioning */
+    left: 130px; /* Shift left */
+    margin-top: 5px; /* Top margin */
+    animation: fadeIn 0.5s ease; /* Apply fade-in animation */
+}
+
+/* Bot Message Styles */
+.bot-message .message-content {
+    background-color: #300303; /* Bot message background color */
+    margin-right: 10px; /* Right margin */
+    position: relative; /* Positioning */
+    left: -15px; /* Shift right */
+    margin-top: 5px; /* Top margin */
+    animation: fadeIn 0.5s ease; /* Apply fade-in animation */
+}
+
+/* Profile Image Styles */
+.profileimage {
+    width: 40px; /* Width */
+    height: 40px; /* Height */
+    border-radius: 50%; /* Circular shape */
+    object-fit: cover; /* Cover image */
+}
+
+/* Chat Input Container */
+.chat-input-container {
+    display: flex; /* Flexbox layout */
+    padding: 15px; /* Padding */
+    background-color: #202020; /* Background color */
+}
+
+/* User Input Field */
+#user-input {
+    flex-grow: 1; /* Allow to grow */
+    padding: 10px; /* Padding */
+    border: 10px solid #4a4a4a; /* Border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    background-color: #3a3a3a; /* Background color */
+    color: whitesmoke; /* Text color */
+
+    outline: none; /* Remove outline */
+    transition: border-color 0.3s ease; /* Transition for border color */
+}
+
+/* Animation for input field focus */
+@keyframes pulse {
+    from {
+        border-color: #4a4a4a; /* Initial border color */
+    }
+    to {
+        border-color: #5a5a5a; /* Pulse effect */
+    }
+}
+
+#user-input:focus {
+    animation: pulse 0.5s ease infinite; /* Apply pulse animation on focus */
+}
+
+/* Send Button */
+#send-button {
+    padding: 10px 20px; /* Padding */
+    background-color: #4a90e2; /* Button color */
+    color: #fff; /* Text color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    margin-left: 10px; /* Left margin */
+    cursor: pointer; /* Pointer cursor */
+    font-size: 1rem; /* Font size */
+    transition: background-color 0.3s ease; /* Transition for background color */
+}
+
+/* Animation for button hover */
+@keyframes hover {
+    from {
+        background-color: #4a90e2; /* Initial button color */
+    }
+    to {
+        background-color: #3a7bcb; /* Hover effect */
+    }
+}
+
+#send-button:hover {
+    animation: hover 0.5s ease; /* Apply hover animation */
+}
+
+#send-button:disabled {
+    background-color: #2a5aba; /* Disabled button color */
+    cursor: not-allowed; /* Not allowed cursor */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .chat-container {
+        height: 80vh; /* Adjust height for medium devices */
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-container {
+        height: 100vh; /* Full height for small devices */
+        border-radius: 0; /* Remove border radius for small screens */
+    }
+
+    .chat-header h1 {
+        font-size: 1.2rem; /* Smaller font size for header */
+    }
+
+    #user-input {
+        font-size: 0.9rem; /* Smaller input font size */
+    }
+
+    #send-button {
+        font-size: 0.9rem; /* Smaller button font size */
+    }
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background-color: #2a2a2a; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #4a4a4a; /* Thumb color */
+    border-radius: 4px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5a5a5a; /* Thumb color on hover */
+}
+/* Animation for question and answer text */
+@keyframes textFade {
+    from {
+        opacity: 0; /* Initial opacity */
+    }
+    to {
+        opacity: 1; /* Final opacity */
+    }
+}
+
+.question, .answer {
+    animation: textFade 0.5s ease; /* Apply fade-in animation */
+}
